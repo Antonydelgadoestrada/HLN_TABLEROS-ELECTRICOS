@@ -2064,11 +2064,15 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: clamp(1rem, 3vw, 2rem);
+    justify-items: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .video-grid video {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 20 / 9;
     object-fit: cover;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-lg);
