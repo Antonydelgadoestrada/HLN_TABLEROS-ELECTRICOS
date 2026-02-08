@@ -2097,13 +2097,13 @@ body {
 
     .video-grid {
         /* Forzar columnas amplias para que los videos sean más grandes */
-        grid-template-columns: repeat(3, minmax(360px, 1fr));
+        grid-template-columns: repeat(3, minmax(380px, 1fr));
         gap: clamp(2rem, 3vw, 3rem);
     }
 
     .video-grid video {
         /* Aumentar altura visual de los videos sin romper la relación de aspecto */
-        height: 420px;
+        height: 500px;
         object-fit: cover;
     }
 }
