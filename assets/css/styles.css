@@ -210,6 +210,7 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: var(--spacing-lg);
+    flex-wrap: wrap;
 }
 
 /* IZQUIERDA */
@@ -1653,6 +1654,7 @@ body {
 
     .navbar .container {
         padding: var(--spacing-md);
+        gap: 0.75rem;
     }
 }
 
@@ -1673,6 +1675,8 @@ body {
         width: 100%;
         box-shadow: var(--shadow-lg);
         z-index: 999;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .nav-links.active {
@@ -1772,6 +1776,7 @@ body {
 
     .navbar .container {
         padding: var(--spacing-sm);
+        gap: 0.5rem;
     }
 
     .navbar-logo {
@@ -1781,10 +1786,15 @@ body {
 
     .partner-badge {
         margin-right: 0;
+        margin-left: auto;
     }
 
     .partner-logo {
         height: 28px;
+    }
+
+    .hamburger {
+        margin-left: var(--spacing-sm);
     }
 
     .nav-links {
