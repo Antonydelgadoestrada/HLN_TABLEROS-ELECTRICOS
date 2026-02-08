@@ -196,10 +196,20 @@ body {
    NAVEGACIÓN
    ============================================ */
 
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-md) 0;
+}
+
 .navbar .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--spacing-lg);
 }
 
 /* IZQUIERDA */
@@ -1023,6 +1033,44 @@ body {
     font-size: 0.9rem;
 }
 
+/* ============================================
+   BOTÓN FLOTANTE WHATSAPP
+   ============================================ */
+
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 2000;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    background: linear-gradient(180deg, #25D366, #128C7E);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 200ms ease, box-shadow 200ms ease, opacity 200ms ease;
+    opacity: 0.98;
+}
+
+.whatsapp-float a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.whatsapp-float svg {
+    display: block;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+}
+
 /* Tarjetas de proyecto con imagen de fondo */
 .proyecto-image-card {
     width: 100%;
@@ -1106,10 +1154,12 @@ body {
 
 .detail-inner {
     display: flex;
+    flex-direction: row;
     gap: var(--spacing-lg);
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    width: 100%;
 }
 
 .detail-inner.reverse {
@@ -1117,8 +1167,7 @@ body {
 }
 
 .detail-image {
-    flex: 1 1 50%;
-    min-width: 300px;
+    flex: 1;
     height: clamp(220px, 50vw, 320px);
     border-radius: var(--border-radius-lg);
     background: linear-gradient(135deg, #001a33, #003d66);
@@ -1133,8 +1182,7 @@ body {
 }
 
 .detail-text {
-    flex: 1 1 50%;
-    min-width: 300px;
+    flex: 1;
     padding: var(--spacing-lg);
 }
 
@@ -1153,17 +1201,16 @@ body {
 @media (max-width: 900px) {
     .detail-inner {
         flex-direction: column;
+        flex-wrap: wrap;
     }
 
     .detail-image {
         width: 100%;
-        min-width: 100%;
         height: 240px;
     }
 
     .detail-text {
         width: 100%;
-        min-width: 100%;
         padding: var(--spacing-md);
     }
 
@@ -1350,6 +1397,43 @@ body {
     background-color: rgba(220, 38, 38, 0.2);
     color: #fca5a5;
     border: 1px solid #ef4444;
+}
+
+/* ============================================
+   MAPA DE UBICACIÓN
+   ============================================ */
+
+.mapa-container {
+    margin-top: var(--spacing-2xl);
+    padding: var(--spacing-lg) 0;
+    background: white;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.mapa-container iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: var(--border-radius-lg);
+}
+
+@media (max-width: 768px) {
+    .mapa-container {
+        margin-top: var(--spacing-lg);
+        padding: var(--spacing-md) 0;
+    }
+
+    .mapa-container iframe {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mapa-container iframe {
+        height: 200px;
+    }
 }
 
 /* ============================================
