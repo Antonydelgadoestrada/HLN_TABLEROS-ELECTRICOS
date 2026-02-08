@@ -630,7 +630,8 @@ body {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Desktop: una fila de 4 columnas */
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--spacing-lg);
     max-width: 900px;
     margin: 0 auto;
@@ -1179,6 +1180,13 @@ body {
     box-shadow: var(--shadow-lg);
     overflow: hidden;
     transform: translateX(0);
+}
+/* Imagen interna para asegurar render en móviles y mejorar accesibilidad */
+.detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .detail-text {

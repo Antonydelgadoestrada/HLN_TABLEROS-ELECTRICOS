@@ -291,6 +291,7 @@ const projects = {
 function showProjectDetail(key) {
     const detail = document.getElementById('proyecto-detail');
     const img = document.getElementById('detail-image');
+    const imgTag = document.getElementById('detail-image-img');
     const title = document.getElementById('detail-title');
     const desc = document.getElementById('detail-desc');
     const inner = document.querySelector('.detail-inner');
@@ -300,9 +301,15 @@ function showProjectDetail(key) {
     // Set content
     title.textContent = projects[key].title;
     desc.textContent = projects[key].desc;
+    // Background fallback
     img.style.backgroundImage = `url('${projects[key].image}')`;
     img.style.backgroundSize = 'cover';
     img.style.backgroundPosition = 'center';
+    // Prefer using an <img> tag for reliable rendering on mobile
+    if (imgTag) {
+        imgTag.src = projects[key].image;
+        imgTag.alt = projects[key].title;
+    }
 
     // Orientation: proceso = image right (reverse)
     if (key === 'proceso') {
@@ -411,6 +418,7 @@ const equipments = {
 function showEquipmentDetail(key) {
     const detail = document.getElementById('equipo-detail');
     const img = document.getElementById('equipo-detail-image');
+    const imgTag = document.getElementById('equipo-detail-image-img');
     const title = document.getElementById('equipo-detail-title');
     const desc = document.getElementById('equipo-detail-desc');
 
@@ -419,9 +427,15 @@ function showEquipmentDetail(key) {
     // Set content
     title.textContent = equipments[key].title;
     desc.textContent = equipments[key].desc;
+    // Background fallback
     img.style.backgroundImage = `url('${equipments[key].image}')`;
     img.style.backgroundSize = 'cover';
     img.style.backgroundPosition = 'center';
+    // Set <img> src for reliable mobile rendering
+    if (imgTag) {
+        imgTag.src = equipments[key].image;
+        imgTag.alt = equipments[key].title;
+    }
 
     // Prepare animations
     img.classList.remove('animate-left','animate-right');
