@@ -2062,17 +2062,64 @@ body {
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
     gap: clamp(1rem, 3vw, 2rem);
     justify-items: center;
     align-items: center;
-    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* Carrusel wrapper para móvil */
+.video-carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Botones de navegación - OCULTOS EN DESKTOP */
+.carousel-btn {
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+/* Videos en la grid */
+.video-slide {
+    width: 100%;
+    height: 100%;
 }
 
 .video-grid video {
     width: 100%;
-    aspect-ratio: 20 / 9;
+    aspect-ratio: 22 / 8;
     object-fit: cover;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-lg);
@@ -2091,6 +2138,40 @@ body {
         grid-template-columns: 1fr;
         gap: clamp(1rem, 2vw, 1.5rem);
     }
+
+    /* Activar carrusel en móvil */
+    .video-carousel-wrapper {
+        position: relative;
+    }
+
+    .video-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .video-slide {
+        display: none;
+        width: 100% !important;
+    }
+
+    .video-slide.active {
+        display: block;
+    }
+
+    /* Mostrar botones en móvil */
+    .carousel-btn {
+        display: flex;
+    }
+
+    .carousel-btn.prev {
+        left: 0;
+    }
+
+    .carousel-btn.next {
+        right: 0;
+    }
 }
 
 /* Desktop: aumentar tamaño de los videos en pantallas grandes */
@@ -2101,13 +2182,15 @@ body {
 
     .video-grid {
         /* Forzar columnas amplias para que los videos sean más grandes */
-        grid-template-columns: repeat(3, minmax(380px, 1fr));
+        grid-template-columns: repeat(3, minmax(320px, 1fr));
         gap: clamp(2rem, 3vw, 3rem);
+        max-width: 1300px;
+        margin: 0 auto;
     }
 
     .video-grid video {
         /* Aumentar altura visual de los videos sin romper la relación de aspecto */
-        height: 500px;
+        height: 550px;
         object-fit: cover;
     }
 }

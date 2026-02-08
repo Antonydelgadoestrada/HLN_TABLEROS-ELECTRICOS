@@ -754,6 +754,43 @@ document.addEventListener('DOMContentLoaded', () => {
     initVideoStrip();
 });
 
+// ============================================
+// CARRUSEL DE VIDEOS - MÓVIL
+// ============================================
+
+function initVideoCarousel() {
+    const carousel = document.getElementById('videoCarousel');
+    const slides = document.querySelectorAll('.video-slide');
+    const prevBtn = document.getElementById('videoPrev');
+    const nextBtn = document.getElementById('videoNext');
+
+    if (!slides.length || !prevBtn || !nextBtn) return;
+
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[index].classList.add('active');
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+    }
+
+    // Mostrar primer video por defecto
+    showSlide(0);
+
+    // Event listeners para botones
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+}
+
 
 // Inicializar con el número proporcionado al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
@@ -770,6 +807,7 @@ document.addEventListener('DOMContentLoaded', () => {
     animateCountUp();
     initQuienesImageSlider();
     initVideoStrip();
+    initVideoCarousel();
 });
 
 

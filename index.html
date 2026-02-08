@@ -152,12 +152,25 @@
     <div class="container">
         <h2 class="section-title light fade-in">Nuestro trabajo en acción</h2>
 
-        <div class="video-grid">
-    <video muted playsinline autoplay></video>
-<video muted playsinline autoplay></video>
-<video muted playsinline autoplay></video>
+        <div class="video-carousel-wrapper">
+            <div class="video-grid" id="videoCarousel">
+        <video muted playsinline autoplay class="video-slide"></video>
+<video muted playsinline autoplay class="video-slide"></video>
+<video muted playsinline autoplay class="video-slide"></video>
 
 </div>
+            <!-- Botones de navegación para móvil -->
+            <button class="carousel-btn prev" id="videoPrev" aria-label="Video anterior">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <button class="carousel-btn next" id="videoNext" aria-label="Siguiente video">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
 
     </div>
 </section>
